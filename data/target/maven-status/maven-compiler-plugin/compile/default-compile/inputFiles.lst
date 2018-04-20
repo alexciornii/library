@@ -1,0 +1,13 @@
+/home/java/Downloads/pro-spring-boot-master/ch14/library/data/src/main/java/md/esempla/library/repository/BooksBorrowedRepository.java
+/home/java/Downloads/pro-spring-boot-master/ch14/library/data/src/main/java/md/esempla/library/domain/BookEdited.java
+/home/java/Downloads/pro-spring-boot-master/ch14/library/data/src/main/java/md/esempla/library/domain/Publisher.java
+/home/java/Downloads/pro-spring-boot-master/ch14/library/data/src/main/java/md/esempla/library/domain/Book.java
+/home/java/Downloads/pro-spring-boot-master/ch14/library/data/src/main/java/md/esempla/library/repository/PublishersRepository.java
+/home/java/Downloads/pro-spring-boot-master/ch14/library/data/src/main/java/md/esempla/library/repository/ClientsRepository.java
+/home/java/Downloads/pro-spring-boot-master/ch14/library/data/src/main/java/md/esempla/library/EsemplaLibraryApplication.java
+/home/java/Downloads/pro-spring-boot-master/ch14/library/data/src/main/java/md/esempla/library/domain/BookBorrowed.java
+/home/java/Downloads/pro-spring-boot-master/ch14/library/data/src/main/java/md/esempla/library/repository/AuthorsRepository.java
+/home/java/Downloads/pro-spring-boot-master/ch14/library/data/src/main/java/md/esempla/library/repository/BooksRepository.java
+/home/java/Downloads/pro-spring-boot-master/ch14/library/data/src/main/java/md/esempla/library/domain/Author.java
+/home/java/Downloads/pro-spring-boot-master/ch14/library/data/src/main/java/md/esempla/library/repository/BooksEditedRepository.java
+/home/java/Downloads/pro-spring-boot-master/ch14/library/data/src/main/java/md/esempla/library/domain/Client.java
