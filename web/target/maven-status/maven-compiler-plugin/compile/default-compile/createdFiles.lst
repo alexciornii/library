@@ -1,0 +1,4 @@
+EsemplaLibraryApplication.class
+md/esempla/library/web/BooksController.class
+md/esempla/library/web/BooksBorrowedController.class
+md/esempla/library/config/LibraryConfig.class

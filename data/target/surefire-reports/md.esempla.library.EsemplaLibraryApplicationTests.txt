@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: md.esempla.library.EsemplaLibraryApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.005 sec - in md.esempla.library.EsemplaLibraryApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.016 sec - in md.esempla.library.EsemplaLibraryApplicationTests
