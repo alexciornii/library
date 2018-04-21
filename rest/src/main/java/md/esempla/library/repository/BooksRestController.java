@@ -13,7 +13,7 @@ public class BooksRestController {
     @Autowired
     BooksRepository booksRepository;
 
-    @RequestMapping("/booksApi")
+    @RequestMapping("/books/api")
     Collection<Book> books() {
 
         return this.booksRepository.findAll();

@@ -1,6 +1,6 @@
 package md.esempla.library.repository;
 
-import md.esempla.library.domain.Author;
+import md.esempla.library.domain.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Collection;
 
 @RestController
-public class AuhorsRestController {
+public class PublishersRestController {
 
     @Autowired
-    private AuthorsRepository authorsRepository;
+    PublishersRepository publsRepository;
 
-    @RequestMapping("/authors/api")
-    Collection<Author> authors() {
-        return this.authorsRepository.findAll();
+    @RequestMapping("/publishers/api")
+    Collection<Publisher> publishers() {
+        return this.publsRepository.findAll();
     }
 }
