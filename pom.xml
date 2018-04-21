@@ -14,13 +14,14 @@
     <modules>
         <module>data</module>
         <module>web</module>
+        <module>rest</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.10.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/> <!-- lookup parent from md.esempla.library.repository -->
     </parent>
 
     <dependencies>
