@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: md.esempla.library.rest.controller.AuhorsRestControllerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 7.641 sec <<< FAILURE! - in md.esempla.library.rest.controller.AuhorsRestControllerTest
+testGetById(md.esempla.library.rest.controller.AuhorsRestControllerTest)  Time elapsed: 0.302 sec  <<< ERROR!
+java.lang.IllegalArgumentException: bound must be positive
+	at java.util.Random.nextInt(Random.java:388)
+	at md.esempla.library.rest.controller.AuhorsRestControllerTest.testGetById(AuhorsRestControllerTest.java:44)
+

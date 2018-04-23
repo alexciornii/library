@@ -21,19 +21,22 @@ public class BooksBorrowedRestController {
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody BookBorrowed bookBorrowed) {
         booksBorrowedRepository.save(bookBorrowed);
-        log.info("Create new row in BooksBorrowed");
+        log.info("Create new row in borrowed books");
     }
 
     @GetMapping
     public Collection<BookBorrowed> bookBorroweds() {
-        log
+        log.info("Get list of borrowed books");
         return this.booksBorrowedRepository.findAll();
     }
 
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     public void update(@RequestBody BookBorrowed bookBorrowed) {
+        log.info("Update borrowed books...");
+        log.info("Before: " + booksBorrowedRepository.findById(bookBorrowed.getId()));
         booksBorrowedRepository.save(bookBorrowed);
+        log.info("After: " + bookBorrowed);
     }
 
     @PostMapping("/{id}")
