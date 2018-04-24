@@ -1,9 +1,36 @@
 -------------------------------------------------------------------------------
 Test set: md.esempla.library.rest.controller.AuhorsRestControllerTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 7.641 sec <<< FAILURE! - in md.esempla.library.rest.controller.AuhorsRestControllerTest
-testGetById(md.esempla.library.rest.controller.AuhorsRestControllerTest)  Time elapsed: 0.302 sec  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 8.801 sec <<< FAILURE! - in md.esempla.library.rest.controller.AuhorsRestControllerTest
+getByIdTest(md.esempla.library.rest.controller.AuhorsRestControllerTest)  Time elapsed: 0.122 sec  <<< ERROR!
 java.lang.IllegalArgumentException: bound must be positive
 	at java.util.Random.nextInt(Random.java:388)
-	at md.esempla.library.rest.controller.AuhorsRestControllerTest.testGetById(AuhorsRestControllerTest.java:44)
+	at md.esempla.library.rest.controller.AuhorsRestControllerTest.getByIdTest(AuhorsRestControllerTest.java:59)
+
+createAuthorTest(md.esempla.library.rest.controller.AuhorsRestControllerTest)  Time elapsed: 0.229 sec  <<< ERROR!
+org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8080/api/authors/2": Connection refused (Connection refused); nested exception is java.net.ConnectException: Connection refused (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:339)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:357)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1220)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1156)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1050)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:984)
+	at org.springframework.http.client.SimpleBufferingClientHttpRequest.executeInternal(SimpleBufferingClientHttpRequest.java:78)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:53)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:660)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:621)
+	at org.springframework.web.client.RestTemplate.getForObject(RestTemplate.java:295)
+	at md.esempla.library.rest.controller.AuhorsRestControllerTest.createAuthorTest(AuhorsRestControllerTest.java:50)
 

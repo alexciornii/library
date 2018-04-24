@@ -2,7 +2,7 @@
 
 CREATE TABLE IF NOT EXISTS authors
 (
-  id bigint,
+  id bigint AUTO_INCREMENT,
   first_name varchar(255),
   last_name varchar(255),
   phone varchar(255),

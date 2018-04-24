@@ -5,6 +5,7 @@ import md.esempla.library.domain.Author;
 import md.esempla.library.repository.AuthorsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -33,7 +34,7 @@ public class AuhorsRestController {
         return this.authorsRepository.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Author getById(@PathVariable("id") Long id) {
         log.info("Get author by id + " + id);
 
