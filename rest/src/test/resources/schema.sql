@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS authors
 
 CREATE TABLE IF NOT EXISTS books
 (
-  id bigint ,
+  id bigint AUTO_INCREMENT,
   name text NOT NULL,
   author_id bigint NOT NULL,
   CONSTRAINT books_pkey PRIMARY KEY (id),
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS books
 
 CREATE TABLE IF NOT EXISTS clients
 (
-  id bigint,
+  id bigint AUTO_INCREMENT,
   email character varying(255),
   first_name character varying(255),
   last_name character varying(255),
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS clients
 
 CREATE TABLE IF NOT EXISTS publishers
 (
-  id bigint,
+  id bigint AUTO_INCREMENT,
   name text NOT NULL,
   address character varying(255),
   phone character varying(255),
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS publishers
 -- Table: books_borrowed
 CREATE TABLE IF NOT EXISTS books_borrowed
 (
-  id bigint,
+  id bigint AUTO_INCREMENT,
   client_id bigint,
   book_id bigint,
   date_start timestamp,

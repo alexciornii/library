@@ -65,8 +65,6 @@ public class AuhorsRestControllerTest {
         Author author = new Author( "Ion Luca", "Caragiale", "12123378568");
         String json = mapper.writeValueAsString(author);
 
-        authorsRepository.save(author);
-
         mockMvc.perform(post("/api/authors")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(json))

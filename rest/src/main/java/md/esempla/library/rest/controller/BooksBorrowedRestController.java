@@ -31,6 +31,14 @@ public class BooksBorrowedRestController {
         return this.booksBorrowedRepository.findAll();
     }
 
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public BookBorrowed getBooksBorrowedById(@PathVariable("id") long id) {
+        log.info("Getting book borrowed by id " + id);
+
+        return booksBorrowedRepository.findById(id);
+    }
+
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     public BookBorrowed updateBookBorrowed(@RequestBody BookBorrowed bookBorrowed) {
