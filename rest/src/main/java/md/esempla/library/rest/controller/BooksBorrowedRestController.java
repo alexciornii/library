@@ -19,28 +19,32 @@ public class BooksBorrowedRestController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody BookBorrowed bookBorrowed) {
+    public void createBookBorrowed(@RequestBody BookBorrowed bookBorrowed) {
         booksBorrowedRepository.save(bookBorrowed);
         log.info("Create new row in borrowed books");
     }
 
     @GetMapping
-    public Collection<BookBorrowed> bookBorroweds() {
+    @ResponseStatus(HttpStatus.OK)
+    public Collection<BookBorrowed> getBooksBorrowed() {
         log.info("Get list of borrowed books");
         return this.booksBorrowedRepository.findAll();
     }
 
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public void update(@RequestBody BookBorrowed bookBorrowed) {
+    public BookBorrowed updateBookBorrowed(@RequestBody BookBorrowed bookBorrowed) {
         log.info("Update borrowed books...");
         log.info("Before: " + booksBorrowedRepository.findById(bookBorrowed.getId()));
         booksBorrowedRepository.save(bookBorrowed);
         log.info("After: " + bookBorrowed);
+
+        return bookBorrowed;
     }
 
     @PostMapping("/{id}")
-    public void delete(@PathVariable("id") Long id) {
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteBookBorrowed(@PathVariable("id") Long id) {
         booksBorrowedRepository.delete(id);
     }
 }

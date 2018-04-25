@@ -5,7 +5,6 @@ import md.esempla.library.domain.Author;
 import md.esempla.library.repository.AuthorsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -18,24 +17,23 @@ public class AuhorsRestController {
     @Autowired
     private AuthorsRepository authorsRepository;
 
-    @PostMapping
+    @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public Long create(@RequestBody Author author) {
+    public void createAuthor(@RequestBody Author author) {
         authorsRepository.save(author);
         log.info("Create an author : " + author);
-
-        return author.getId();
     }
 
     @GetMapping
-    public Collection<Author> getAll() {
+    @ResponseStatus(HttpStatus.OK)
+    public Collection<Author> getListOfAuthors() {
         log.info("Get collections of authors");
 
         return this.authorsRepository.findAll();
     }
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Author getById(@PathVariable("id") Long id) {
+    @GetMapping(value = "/{id}", produces = "application/json; charset=UTF-8")
+    public Author getAuthorById(@PathVariable("id") Long id) {
         log.info("Get author by id + " + id);
 
         return this.authorsRepository.findById(id);
@@ -43,15 +41,17 @@ public class AuhorsRestController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void deleteById(@PathVariable("id") Long id) {
+    public void deleteauthorById(@PathVariable("id") Long id) {
         log.info("Deleting author by id " + id);
         authorsRepository.delete(id);
     }
 
-    @RequestMapping()
+    @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public void update(@RequestBody Author author) {
+    public Author updateAuthor(@RequestBody Author author) {
         log.info("Update author " + author);
         authorsRepository.save(author);
+
+        return author;
     }
 }

@@ -29,4 +29,10 @@ public class BookBorrowed {
     @ManyToOne
     @JoinColumn(name = "book_id")
     private Book book;
+
+    public BookBorrowed(Date date, Client client, Book book) {
+        this.date = date;
+        this.client = client;
+        this.book = book;
+    }
 }

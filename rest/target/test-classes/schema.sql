@@ -43,3 +43,17 @@ CREATE TABLE IF NOT EXISTS publishers
   phone character varying(255),
   CONSTRAINT publishers_pkey PRIMARY KEY (id)
 );
+
+-- Table: books_borrowed
+CREATE TABLE IF NOT EXISTS books_borrowed
+(
+  id bigint,
+  client_id bigint,
+  book_id bigint,
+  date_start timestamp,
+  CONSTRAINT books_borrowed_pkey PRIMARY KEY (id),
+  CONSTRAINT book_id_fkey FOREIGN KEY (book_id)
+  REFERENCES books (id),
+  CONSTRAINT client_id_fkey FOREIGN KEY (client_id)
+  REFERENCES clients (id)
+);

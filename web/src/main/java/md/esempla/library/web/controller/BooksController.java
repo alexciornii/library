@@ -1,4 +1,4 @@
-package md.esempla.library.web;
+package md.esempla.library.web.controller;
 
 import md.esempla.library.domain.*;
 import md.esempla.library.repository.*;
