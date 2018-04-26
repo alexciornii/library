@@ -1,17 +1,29 @@
 = RESTful Notes API Guide
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
 
-[[API]]
+[[Library]]
 
-[[API-Authors]]
+[[Library-Authors]]
 == Authors
 
-Whenever an error response (status code >= 400) is returned, the body will contain a JSON object
-that describes the problem. The error object has the following structure:
+=== createAuthors()
+.curl-request
+include::{snippets}/api-documentation/create-author/curl-request.adoc[]
 
-For example, a request that attempts to apply a non-existent tag to a note will produce a
-`400 Bad Request` response:
+.request
+include::{snippets}/api-documentation/create-author/http-request.adoc[]
 
-This is an example output for a service running at http://localhost:8080:
+.response
+include::{snippets}/api-documentation/create-author/http-response.adoc[]
+
+=== getAuthors()
+.curl-request
+include::{snippets}/api-documentation/get-authors/curl-request.adoc[]
 
 .request
 include::{snippets}/api-documentation/get-authors/http-request.adoc[]
@@ -19,4 +31,28 @@ include::{snippets}/api-documentation/get-authors/http-request.adoc[]
 .response
 include::{snippets}/api-documentation/get-authors/http-response.adoc[]
 
-As you can see the format is very simple, and in fact you always get the same message.
+.response fields
+include::{snippets}/api-documentation/get-authors/response-fields.adoc[]
+
+=== getAuthorById()
+.curl-request
+include::{snippets}/api-documentation/get-author-by-id/curl-request.adoc[]
+
+.request
+include::{snippets}/api-documentation/get-author-by-id/http-request.adoc[]
+
+.response
+include::{snippets}/api-documentation/get-author-by-id/http-response.adoc[]
+
+.response fields
+include::{snippets}/api-documentation/get-author-by-id/response-fields.adoc[]
+
+=== updateAuthor()
+.curl-request
+include::{snippets}/api-documentation/update-author/curl-request.adoc[]
+
+.request
+include::{snippets}/api-documentation/update-author/http-request.adoc[]
+
+.response
+include::{snippets}/api-documentation/update-author/http-response.adoc[]

@@ -1,13 +1,17 @@
 package md.esempla.library.rest.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import md.esempla.library.domain.Author;
 import md.esempla.library.repository.AuthorsRepository;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -15,11 +19,12 @@ import javax.servlet.RequestDispatcher;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel;
-import static org.springframework.restdocs.hypermedia.HypermediaDocumentation.links;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.put;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.restdocs.payload.PayloadDocumentation.requestFields;
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -31,11 +36,23 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureRestDocs(outputDir = "target/generated-snippets")
 public class ApiDocumentation {
 
+    private ObjectMapper objectMapper;
     @Autowired
     private MockMvc mockMvc;
 
     @Autowired
     private AuthorsRepository authorsRepository;
+
+    @Before
+    public void setup() {
+        objectMapper = new ObjectMapper();
+        authorsRepository.save(new Author("Nicola", "Tesla", "031546253"));
+    }
+
+    @After
+    public void testDown() {
+        this.authorsRepository.deleteAll();
+    }
 
     @Test
     public void errorExample() throws Exception {
@@ -74,16 +91,51 @@ public class ApiDocumentation {
     }
 
     @Test
-    public void carRepositoryListExample() throws Exception {
-
-        this.authorsRepository.deleteAll();
-
-        authorsRepository.save(new Author("asfasdfas", "asdasdad", "31253"));
-        authorsRepository.save(new Author("asdasd", "jshdbfjhsf", "5454435"));
+    public void getAuthorById() throws Exception {
 
         this.mockMvc
-                .perform(get("/api/authors"))
+                .perform(get("/api/authors/" + authorsRepository.findByFirstName("Nicola").getId())
+                        .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
-                .andDo(document("{class-name}/{method-name}"));
+                .andDo(document("{class-name}/{method-name}",
+                        responseFields(
+                                fieldWithPath("id").description("author id"),
+                                fieldWithPath("firstName").description("author first name"),
+                                fieldWithPath("lastName").description("author last name"),
+                                fieldWithPath("phone").description("author phone")
+                        )));
+    }
+
+    @Test
+    public void updateAuthor() throws Exception {
+        String authorJson = objectMapper.writeValueAsString(authorsRepository.findByFirstName("Nicola"));
+        this.mockMvc.perform(put("/api/authors").content(authorJson)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .accept(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isOk())
+                .andDo(document("{class-name}/{method-name}",
+                        requestFields(
+                                fieldWithPath("id").description("author id"),
+                                fieldWithPath("firstName").description("author first name"),
+                                fieldWithPath("lastName").description("author last name"),
+                                fieldWithPath("phone").description("author phone")
+                        )));
+    }
+
+    @Test
+    public void createAuthor() throws Exception {
+            String authorJson = objectMapper.writeValueAsString(authorsRepository.findByFirstName("Nicola"));
+
+            this.mockMvc.perform(post("/api/authors").content(authorJson)
+                    .contentType(MediaType.APPLICATION_JSON_UTF8)
+                    .accept(MediaType.APPLICATION_JSON_UTF8))
+                    .andExpect(status().isCreated())
+                    .andDo(document("{class-name}/{method-name}",
+                            requestFields(
+                                    fieldWithPath("id").description("author id"),
+                                    fieldWithPath("firstName").description("author first name"),
+                                    fieldWithPath("lastName").description("author last name"),
+                                    fieldWithPath("phone").description("author phone")
+                            )));
     }
 }

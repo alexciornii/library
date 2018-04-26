@@ -2,7 +2,7 @@
 ----
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 144
+Content-Length: 70
 
-[{"id":2,"firstName":"asfasdfas","lastName":"asdasdad","phone":"31253"},{"id":3,"firstName":"asdasd","lastName":"jshdbfjhsf","phone":"5454435"}]
+[{"id":5,"firstName":"Nicola","lastName":"Tesla","phone":"031546253"}]
 ----
