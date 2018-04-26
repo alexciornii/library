@@ -10,15 +10,16 @@ import md.esempla.library.repository.AuthorsRepository;
 import md.esempla.library.repository.BooksBorrowedRepository;
 import md.esempla.library.repository.BooksRepository;
 import md.esempla.library.repository.ClientsRepository;
-import md.esempla.library.rest.RestApp;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -26,19 +27,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
 @Slf4j
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = RestApp.class)
-@WebAppConfiguration
+@SpringBootTest
+@AutoConfigureMockMvc
 public class BooksBorrowedRestControllerTest {
 
+    @Autowired
     private MockMvc mockMvc;
 
     private ObjectMapper objectMapper;
@@ -69,6 +69,9 @@ public class BooksBorrowedRestControllerTest {
         objectMapper = new ObjectMapper();
 
         booksBorrowedRepository.deleteAllInBatch();
+        booksRepository.deleteAllInBatch();
+        authorsRepository.deleteAllInBatch();
+        clientsRepository.deleteAllInBatch();
 
         authorList = new ArrayList<>();
         authorList.add(new Author("Mihai", "Eminescu", "1234578"));
@@ -89,7 +92,14 @@ public class BooksBorrowedRestControllerTest {
         bookBorrowedList.add(new BookBorrowed(new Date(), clientsList.get(0), bookList.get(0)));
         bookBorrowedList.add(new BookBorrowed(new Date(), clientsList.get(1), bookList.get(1)));
         booksBorrowedRepository.save(bookBorrowedList);
+    }
 
+    @After
+    public void testDown() {
+        booksBorrowedRepository.deleteAll();
+        booksRepository.deleteAll();
+        authorsRepository.deleteAll();
+        clientsRepository.deleteAll();
     }
 
     @Test
@@ -108,7 +118,6 @@ public class BooksBorrowedRestControllerTest {
         BookBorrowed bookBorrowed = new BookBorrowed(new Date(), client, book);
 
         String bookBorrowedJson = objectMapper.writeValueAsString(bookBorrowed);
-
 
         this.mockMvc.perform(post("/api/booksborrowed")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)

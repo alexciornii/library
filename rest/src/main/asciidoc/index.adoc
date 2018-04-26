@@ -1,0 +1,22 @@
+= RESTful Notes API Guide
+
+[[API]]
+
+[[API-Authors]]
+== Authors
+
+Whenever an error response (status code >= 400) is returned, the body will contain a JSON object
+that describes the problem. The error object has the following structure:
+
+For example, a request that attempts to apply a non-existent tag to a note will produce a
+`400 Bad Request` response:
+
+This is an example output for a service running at http://localhost:8080:
+
+.request
+include::{snippets}/api-documentation/get-authors/http-request.adoc[]
+
+.response
+include::{snippets}/api-documentation/get-authors/http-response.adoc[]
+
+As you can see the format is very simple, and in fact you always get the same message.

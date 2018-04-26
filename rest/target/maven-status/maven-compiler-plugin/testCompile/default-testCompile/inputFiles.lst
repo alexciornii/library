@@ -1,2 +1,4 @@
+/home/java/Projects/library/rest/src/test/java/md/esempla/library/rest/controller/ApiDocumentation.java
+/home/java/Projects/library/rest/src/test/java/md/esempla/library/rest/RestAppTest.java
 /home/java/Projects/library/rest/src/test/java/md/esempla/library/rest/controller/BooksBorrowedRestControllerTest.java
 /home/java/Projects/library/rest/src/test/java/md/esempla/library/rest/controller/AuhorsRestControllerTest.java
