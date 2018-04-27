@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: md.esempla.library.rest.controller.ApiDocumentation
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.07 sec - in md.esempla.library.rest.controller.ApiDocumentation
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.684 sec - in md.esempla.library.rest.controller.ApiDocumentation

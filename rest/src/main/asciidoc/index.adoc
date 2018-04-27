@@ -1,58 +1,165 @@
-= RESTful Notes API Guide
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs
 :toc: left
-:toclevels: 4
+:toclevels: 3
 :sectlinks:
+:sectanchors:
 
-[[Library]]
+= RESTful Notes API Guide
+Library;
 
-[[Library-Authors]]
-== Authors
+.Purpose
+****
+This document is for exchange with Library system
+****
 
-=== createAuthors()
-.curl-request
+[[errors]]
+== Errors
+
+Whenever an error response (status code >= 400) is returned, the body will contain a JSON object
+that describes the problem. The error object has the following structure:
+
+include::{snippets}/error-example/response-fields.adoc[]
+
+For example, a request that attempts to apply a non-existent tag to a note will produce a
+`400 Bad Request` response:
+
+include::{snippets}/error-example/http-response.adoc[]
+
+[[http-verbs]]
+== 1. HTTP verbs
+
+RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs.
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PUT`
+| Used to update an existing resource, including partial updates
+
+| `DELETE`
+| Used to delete an existing resource
+|===
+
+[[http-status-codes]]
+== 2. HTTP status codes
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| The request completed successfully
+
+| `201 Created`
+| A new resource has been created successfully. The resource's URI is available from the response's
+`Location` header
+
+| `204 No Content`
+| An update to an existing resource has been applied successfully
+
+| `400 Bad Request`
+| The request was malformed. The response body will include an error providing further information
+
+| `404 Not Found`
+| The requested resource did not exist
+
+| `405 Method Not Allowed`
+| The requested resource does not support method
+
+| `409 Conflict`
+| The request tries to put the resource into a conflicting state
+|===
+
+[[headers]]
+== 3. Headers
+
+Every response has the following header(s):
+|===
+|Name|Description
+
+|`Content-Type`
+|The Content-Type of the payload, e.g. `application/json`
+
+|===
+
+[[endpoints]]
+== 4. Endpoints
+
+The index provides the entry point into the service.
+
+[[endpoints-authors]]
+=== 4.1 Authors
+
+==== 4.1.1 createAuthors
+curl-request::
 include::{snippets}/api-documentation/create-author/curl-request.adoc[]
-
-.request
+request::
 include::{snippets}/api-documentation/create-author/http-request.adoc[]
-
-.response
+response::
 include::{snippets}/api-documentation/create-author/http-response.adoc[]
-
-=== getAuthors()
-.curl-request
+==== 4.1.2 getAuthors
+curl-request::
 include::{snippets}/api-documentation/get-authors/curl-request.adoc[]
-
-.request
+request::
 include::{snippets}/api-documentation/get-authors/http-request.adoc[]
-
-.response
+response::
 include::{snippets}/api-documentation/get-authors/http-response.adoc[]
-
-.response fields
+response fields::
 include::{snippets}/api-documentation/get-authors/response-fields.adoc[]
-
-=== getAuthorById()
-.curl-request
+==== 4.1.3 getAuthorById
+curl-request::
 include::{snippets}/api-documentation/get-author-by-id/curl-request.adoc[]
-
-.request
+request::
 include::{snippets}/api-documentation/get-author-by-id/http-request.adoc[]
-
-.response
+response::
 include::{snippets}/api-documentation/get-author-by-id/http-response.adoc[]
-
-.response fields
+response fields::
 include::{snippets}/api-documentation/get-author-by-id/response-fields.adoc[]
-
-=== updateAuthor()
-.curl-request
+==== 4.1.4 updateAuthor
+curl-request::
 include::{snippets}/api-documentation/update-author/curl-request.adoc[]
-
-.request
+request::
 include::{snippets}/api-documentation/update-author/http-request.adoc[]
-
-.response
+response::
 include::{snippets}/api-documentation/update-author/http-response.adoc[]
+
+[[endpoints-books-borrowed]]
+=== 4.2 Books borrowed
+==== 4.2.1 createBookBorrowed
+curl-request::
+include::{snippets}/api-documentation/create-borrowed-book/curl-request.adoc[]
+request::
+include::{snippets}/api-documentation/create-borrowed-book/http-request.adoc[]
+response::
+include::{snippets}/api-documentation/create-borrowed-book/http-response.adoc[]
+==== 4.2.2 updateBookBorrowed
+curl-request::
+include::{snippets}/api-documentation/update-borrowed-book/curl-request.adoc[]
+request::
+include::{snippets}/api-documentation/update-borrowed-book/http-request.adoc[]
+response::
+include::{snippets}/api-documentation/update-borrowed-book/http-response.adoc[]
+==== 4.2.3 getBorrowedBooks
+curl-request::
+include::{snippets}/api-documentation/get-borrowed-books/curl-request.adoc[]
+request::
+include::{snippets}/api-documentation/get-borrowed-books/http-request.adoc[]
+response::
+include::{snippets}/api-documentation/get-borrowed-books/http-response.adoc[]
+response fields::
+include::{snippets}/api-documentation/get-borrowed-books/response-fields.adoc[]
+==== 4.2.4 deleteBorrowedBook
+curl-request::
+include::{snippets}/api-documentation/delete-borrowed-books/curl-request.adoc[]
+request::
+include::{snippets}/api-documentation/delete-borrowed-books/http-request.adoc[]
+response::
+include::{snippets}/api-documentation/delete-borrowed-books/http-response.adoc[]

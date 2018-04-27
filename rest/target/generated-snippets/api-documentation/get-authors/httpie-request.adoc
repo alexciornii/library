@@ -1,4 +1,4 @@
 [source,bash]
 ----
-$ http GET 'http://localhost:8080/api/authors'
+$ http GET 'http://localhost:8080/api/authors' 'Accept:application/json;charset=UTF-8'
 ----

@@ -15,7 +15,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -119,7 +118,7 @@ public class BooksBorrowedRestControllerTest {
 
         String bookBorrowedJson = objectMapper.writeValueAsString(bookBorrowed);
 
-        this.mockMvc.perform(post("/api/booksborrowed")
+        this.mockMvc.perform(post("http://localhost:8888/api/booksborrowed")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(bookBorrowedJson))
                 .andExpect(status().isCreated());
@@ -133,7 +132,7 @@ public class BooksBorrowedRestControllerTest {
         bookBorrowed.setClient(clientsList.get(1));
 
         String bookBorrowedJson = objectMapper.writeValueAsString(bookBorrowed);
-        mockMvc.perform(put("/api/booksborrowed")
+        mockMvc.perform(put("http://localhost:8888/api/booksborrowed")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(bookBorrowedJson))
                 .andExpect(status().isOk())
@@ -144,7 +143,7 @@ public class BooksBorrowedRestControllerTest {
     public void getBookBorrowedByIdTest() throws Exception {
         log.info("Testing request to get book borrowed by id...");
 
-        mockMvc.perform(get("/api/booksborrowed/" + bookBorrowedList.get(0).getId()))
+        mockMvc.perform(get("http://localhost:8888/api/booksborrowed/" + bookBorrowedList.get(0).getId()))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(bookBorrowedList.get(0).getId()))
                 .andExpect(jsonPath("$.date").value(bookBorrowedList.get(0).getDate()))
@@ -156,7 +155,7 @@ public class BooksBorrowedRestControllerTest {
     public void getListOfBooksBorrowed() throws Exception {
         log.info("Testing request to get list of book borrowed...");
 
-        mockMvc.perform(get("/api/booksborrowed"))
+        mockMvc.perform(get("http://localhost:8888/api/booksborrowed"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id").value(bookBorrowedList.get(0).getId()))
                 .andExpect(jsonPath("$[0].date").value(bookBorrowedList.get(0).getDate()))
