@@ -1,0 +1,13 @@
+version: "3"
+services:
+
+db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 123456
+web:
+  image: library
+  command: java -jar .target/web-0.0.1-SNAPSHOT.jar
+  ports:
+    - "8080:8080"
