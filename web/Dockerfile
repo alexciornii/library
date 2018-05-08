@@ -1,4 +1,6 @@
-FROM openjdk:8-jdk-alpine
-ADD target/web-0.0.1-SNAPSHOT.jar web-0.0.1-SNAPSHOT.jar
+FROM java:8-jdk-alpine
+VOLUME /tmp
+ADD target/web-0.0.1-SNAPSHOT.jar app.jar
+RUN sh -c 'touch /app.jar'
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "web-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="md.esempla.library.rest.controller.ApiDocumentation" time="1.524" tests="9" errors="0" skipped="0" failures="0">
+<testsuite name="md.esempla.library.rest.controller.ApiDocumentation" time="1.162" tests="9" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -31,12 +31,12 @@
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="4.13.0-39-generic"/>
-    <property name="user.home" value="/home/java"/>
+    <property name="user.home" value="/root"/>
     <property name="user.timezone" value="Europe/Chisinau"/>
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.specification.version" value="1.8"/>
-    <property name="user.name" value="java"/>
+    <property name="user.name" value="root"/>
     <property name="java.class.path" value="/usr/share/maven/boot/plexus-classworlds-2.x.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
@@ -56,16 +56,15 @@
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-    <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="getAuthorById" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.596"/>
-  <testcase name="getBorrowedBooks" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.103"/>
-  <testcase name="updateAuthor" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.126"/>
-  <testcase name="errorExample" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.187"/>
-  <testcase name="deleteBorrowedBooks" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.099"/>
-  <testcase name="getAuthors" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.122"/>
-  <testcase name="createBorrowedBook" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.126"/>
-  <testcase name="createAuthor" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.083"/>
-  <testcase name="updateBorrowedBook" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.082"/>
+  <testcase name="getAuthorById" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.63"/>
+  <testcase name="getBorrowedBooks" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.087"/>
+  <testcase name="updateAuthor" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.083"/>
+  <testcase name="errorExample" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.1"/>
+  <testcase name="deleteBorrowedBooks" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.05"/>
+  <testcase name="getAuthors" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.049"/>
+  <testcase name="createBorrowedBook" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.062"/>
+  <testcase name="createAuthor" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.047"/>
+  <testcase name="updateBorrowedBook" classname="md.esempla.library.rest.controller.ApiDocumentation" time="0.054"/>
 </testsuite>
