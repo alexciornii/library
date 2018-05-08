@@ -1,4 +1,4 @@
-package md.esempla.library.web;
+package md.esempla.library.web.controller;
 
 import md.esempla.library.domain.BookBorrowed;
 import md.esempla.library.repository.BooksBorrowedRepository;

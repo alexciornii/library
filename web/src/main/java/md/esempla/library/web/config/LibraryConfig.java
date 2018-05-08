@@ -1,4 +1,4 @@
-package md.esempla.library.config;
+package md.esempla.library.web.config;
 
 
 import org.springframework.context.annotation.Configuration;
@@ -15,9 +15,11 @@ public class LibraryConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/api/**").permitAll()
                 .antMatchers("/", "/**").authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll();
+        http.csrf().disable();
     }
 
     @Override
