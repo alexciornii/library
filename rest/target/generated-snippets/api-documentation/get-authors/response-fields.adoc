@@ -1,0 +1,20 @@
+|===
+|Path|Type|Description
+
+|`[].id`
+|`Number`
+|author id
+
+|`[].firstName`
+|`String`
+|author first name
+
+|`[].lastName`
+|`String`
+|author last name
+
+|`[].phone`
+|`String`
+|author phone
+
+|===

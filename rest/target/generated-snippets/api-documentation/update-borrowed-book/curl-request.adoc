@@ -1,0 +1,4 @@
+[source,bash]
+----
+$ curl 'http://localhost:8080/api/booksborrowed' -i -X PUT -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept: application/json;charset=UTF-8' -d '{"id":17,"date":1525767186282,"client":{"id":17,"firstName":"Ion","lastName":"Ciubotari","email":"ion.ciub@gmail.com","phone":"+36548981231"},"book":{"id":17,"name":"Harap-Alb","author":{"id":27,"firstName":"Mihai","lastName":"Eminescu","phone":"1234578"}}}'
+----

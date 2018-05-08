@@ -1,0 +1,20 @@
+|===
+|Path|Type|Description
+
+|`[].id`
+|`Number`
+|Operation id
+
+|`[].date`
+|`Number`
+|Operation date
+
+|`[].client`
+|`Object`
+|client id
+
+|`[].book`
+|`Object`
+|id of book borrowed
+
+|===

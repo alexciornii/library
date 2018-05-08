@@ -1,0 +1,4 @@
+[source,bash]
+----
+$ curl 'http://localhost:8080/api/authors' -i -X PUT -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept: application/json;charset=UTF-8' -d '{"id":8,"firstName":"Nicola","lastName":"Tesla","phone":"031546253"}'
+----
