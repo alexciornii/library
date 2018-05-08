@@ -131,10 +131,6 @@
                 </plugins>
             </build>
         </profile>
-
-        <profile>
-            <id>docker</id>
-        </profile>
     </profiles>
 
 </project>
