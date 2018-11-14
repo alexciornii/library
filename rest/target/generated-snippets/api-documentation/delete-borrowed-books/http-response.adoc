@@ -1,8 +1,0 @@
-[source,http,options="nowrap"]
-----
-HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 254
-
-{"id":9,"date":1525767186073,"client":{"id":9,"firstName":"Ion","lastName":"Ciubotari","email":"ion.ciub@gmail.com","phone":"+36548981231"},"book":{"id":9,"name":"Harap-Alb","author":{"id":15,"firstName":"Mihai","lastName":"Eminescu","phone":"1234578"}}}
-----

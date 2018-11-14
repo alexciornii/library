@@ -1,4 +1,0 @@
-[source,bash]
-----
-$ echo '{"id":13,"date":1525767186172,"client":{"id":13,"firstName":"Ion","lastName":"Ciubotari","email":"ion.ciub@gmail.com","phone":"+36548981231"},"book":{"id":13,"name":"Harap-Alb","author":{"id":21,"firstName":"Mihai","lastName":"Eminescu","phone":"1234578"}}}' | http POST 'http://localhost:8080/api/booksborrowed' 'Content-Type:application/json;charset=UTF-8'
-----

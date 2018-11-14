@@ -1,9 +1,0 @@
-[source,http,options="nowrap"]
-----
-POST /api/booksborrowed HTTP/1.1
-Content-Type: application/json;charset=UTF-8
-Host: localhost:8080
-Content-Length: 257
-
-{"id":13,"date":1525767186172,"client":{"id":13,"firstName":"Ion","lastName":"Ciubotari","email":"ion.ciub@gmail.com","phone":"+36548981231"},"book":{"id":13,"name":"Harap-Alb","author":{"id":21,"firstName":"Mihai","lastName":"Eminescu","phone":"1234578"}}}
-----

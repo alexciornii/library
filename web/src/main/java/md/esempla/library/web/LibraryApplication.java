@@ -6,9 +6,9 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "md.esempla.library")
-public class EsemplaLibraryApplication {
+public class LibraryApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(EsemplaLibraryApplication.class, args);
+        SpringApplication.run(LibraryApplication.class, args);
     }
 }

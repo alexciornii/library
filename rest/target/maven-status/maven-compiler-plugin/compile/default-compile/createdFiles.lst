@@ -1,7 +1,7 @@
-md/esempla/library/rest/controller/ClientsRepositoryRestController.class
-md/esempla/library/rest/controller/BooksEditedRestController.class
-md/esempla/library/rest/controller/AuhorsRestController.class
-md/esempla/library/rest/controller/PublishersRestController.class
-md/esempla/library/rest/controller/BooksRestController.class
-md/esempla/library/rest/controller/BooksBorrowedRestController.class
-md/esempla/library/rest/RestApp.class
+md\esempla\library\rest\controller\ClientsRepositoryRestController.class
+md\esempla\library\rest\controller\BooksEditedRestController.class
+md\esempla\library\rest\RestApp.class
+md\esempla\library\rest\controller\PublishersRestController.class
+md\esempla\library\rest\controller\BooksBorrowedRestController.class
+md\esempla\library\rest\controller\AuhorsRestController.class
+md\esempla\library\rest\controller\BooksRestController.class

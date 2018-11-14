@@ -21,12 +21,11 @@ public class BooksRepositoryTest {
     BooksRepository booksRepository;
 
     @Test
-    public void book_whenSave_getOk() {
+    public void bookSaveTest() {
         Author author = new Author(1L, "Mihai", "Eminescu", "+37368454613");
         Book book = new Book(1L, "Luceafarul", author);
         authorsRepository.save(author);
         booksRepository.save(book);
         assertThat(booksRepository.findById(1L)).isEqualTo(book);
     }
-
 }

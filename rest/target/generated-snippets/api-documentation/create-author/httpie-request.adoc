@@ -1,4 +1,0 @@
-[source,bash]
-----
-$ echo '{"id":23,"firstName":"Nicola","lastName":"Tesla","phone":"031546253"}' | http POST 'http://localhost:8080/api/authors' 'Content-Type:application/json;charset=UTF-8' 'Accept:application/json;charset=UTF-8'
-----
