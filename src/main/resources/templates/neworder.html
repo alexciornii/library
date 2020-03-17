@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html"/>
+
+    <title>Library</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" th:href="@{/static/css/home.css}"/>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+
+<body class="text-center">
+<nav role="navigation" class="navbar navbar-inverse">
+    <a class="navbar-brand" href="#">Library</a>
+    <!-- Toggle menu for mobile display -->
+    <div class="navbar-header">
+        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+    <!-- default menu -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav">
+            <li class="active"><a th:href="@{/}" href="/">Home</a></li>
+        </ul>
+    </div>
+</nav>
+
+<h1>Order Form</h1>
+<form class="form-group-lg" th:action="@{/neworder}" th:object="${order}" method="post">
+    <div class="content" align="center">
+        <p> <input type="date" th:field="*{date}"/></p>
+        <p>Book:
+            <select name="bookSelected" th:field="*{book}">
+                <option th:each="book : ${books}" th:value="${book.id}" th:text="${book.name}">empty</option>
+            </select>
+        </p>
+        <p>Client:
+            <select name="PublisherSelected" th:field="*{client}">
+                <option th:each="client : ${clients}" th:value="${client.id}" th:text="${client.firstName} + ' ' + ${client.lastName}">empty</option>
+            </select>
+        </p>
+        <p><input type="submit" value="Save"/></p>
+    </div>
+</form>
+
+</body>
+</html>
