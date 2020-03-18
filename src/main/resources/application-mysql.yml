@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    driver-class-name: com.
+    url: jdbc:postgresql://localhost:5432/library
+    username: postgres
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect

@@ -40,7 +40,7 @@ public class AuthorsRestController {
         return this.authorsRepository.findAll();
     }
 
-    @GetMapping(value = "/{id}", produces = "application/json; charset=UTF-8")
+    @GetMapping(value = "/{id}", produces = "application.yml/json; charset=UTF-8")
     public Author getAuthorById(@PathVariable("id") Long id) {
         log.info("Get author by id + " + id);
 
