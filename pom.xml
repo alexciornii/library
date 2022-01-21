@@ -24,7 +24,7 @@
         <thymeleaf-layout-dialect>2.4.1</thymeleaf-layout-dialect>
         <postgresql-connector.version>42.2.11</postgresql-connector.version>
         <mysql-connector.version>8.0.19</mysql-connector.version>
-        <h2-connector.version>1.4.200</h2-connector.version>
+        <h2-connector.version>2.1.210</h2-connector.version>
     </properties>
 
     <dependencies>
